@@ -60,7 +60,7 @@ def generate_views(zbior):
         f.liczba_odtworzen += randint(1, 100)
 
 
-if __name__ == '__main__': #po co (kto pytal)
+if __name__ == '__main__':
     biblioteka = []
     biblioteka.append(Film(tytul="Braveheart", rok_wydania=1998, gatunek="Dramat"))
     biblioteka.append(Serial(tytul="Czarnobyl", rok_wydania=2019, gatunek="Dokumentalny", numer_sezonu=3, numer_odcinka=15))
