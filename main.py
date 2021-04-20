@@ -1,5 +1,6 @@
 from random import randint, choice
 
+
 class Film:
     def __init__(self, tytul, rok_wydania, gatunek, liczba_odtworzen = 0):
         self.tytul = tytul
@@ -38,27 +39,33 @@ def get_movies(zbior):
             wynik.append(f)
     return wynik
 
+
 def get_series(zbior):
     wynik = []
-    for f in zbior:
-        if type(f) == Serial:
-            wynik.append(f)
+    for s in zbior:
+        if type(s) == Serial:
+            wynik.append(s)
     return wynik
+
 
 def search(zbior, title):
     for x in zbior:
         if x.tytul == title:
             return x
 
+
 def generate_views(zbior):
     if len(zbior) > 0:
         f = choice(zbior)
         f.liczba_odtworzen += randint(1, 100)
 
+
 if __name__ == '__main__': #po co (kto pytal)
     biblioteka = []
     biblioteka.append(Film(tytul="Braveheart", rok_wydania=1998, gatunek="Dramat"))
     biblioteka.append(Serial(tytul="Czarnobyl", rok_wydania=2019, gatunek="Dokumentalny", numer_sezonu=3, numer_odcinka=15))
+    biblioteka.append(Serial(tytul="Wataha", rok_wydania=2020, gatunek="Dokumentalny", numer_sezonu=2, numer_odcinka=5))
+    biblioteka.append(Film(tytul="Pulp Fiction", rok_wydania=1994, gatunek="Kryminał"))
 
     for f in biblioteka:
         f.play()
@@ -79,3 +86,13 @@ if __name__ == '__main__': #po co (kto pytal)
     for f in biblioteka:
         f.print()
         print(f"Liczba wyswietlen: {f.liczba_odtworzen}")
+
+print()
+
+
+def top_titles():
+    for w in sorted(biblioteka, key=lambda w: f.liczba_odtworzen):
+        w.print()
+
+
+top_titles()
